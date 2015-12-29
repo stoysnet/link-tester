@@ -28,4 +28,8 @@ if (empty($cfg)) {
 
 header('Content-Type: text/plain');
 
+if (!preg_match('#^http[s]?://#', $cfg['url'])) {
+	$cfg['url'] = 'http://' . $cfg['url'];
+}
+
 require_once 'all.php';
